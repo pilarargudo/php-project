@@ -12,6 +12,8 @@ use DI\ContainerBuilder;
 
 use App\controllers\IndexController;
 
+use App\routing\Web;
+
 //use Kint;
 
   class kernel
@@ -39,8 +41,17 @@ use App\controllers\IndexController;
       // monolog
       $this->logger->info('Kernel up');
       //echo "<h1>Arrancado kernel</h1>";
-      $indexController = new IndexController($this->container);
-      $indexController->index();
+
+      // $indexController = new IndexController($this->container);
+      // $indexController->index();
+
+      // dejamos de inyectamos manualmente, sino con la librería nikic
+      // que nos extraiga lo que recibe para pasarselo al routingManager
+      $httpMethod = $_SERVER['REQUEST_METHOD'];
+      $uri = parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH);
+      $route = $this->container->get(RoutingManager::class);
+      $route->dispatch($httpMethod, $uri, Web::getDispatcher());
+
 
     }
 
