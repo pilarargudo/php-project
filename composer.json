@@ -6,5 +6,13 @@
             "email": "pargudo@disid.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "scripts":{
+        "start": "php -S localhost:4200 -t=public"
+    }
 }
