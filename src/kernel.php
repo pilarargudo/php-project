@@ -10,6 +10,8 @@ use App\ViewManager;
 
 use DI\ContainerBuilder;
 
+use App\controllers\IndexController;
+
 //use Kint;
 
   class kernel
@@ -36,7 +38,10 @@ use DI\ContainerBuilder;
 
       // monolog
       $this->logger->info('Kernel up');
-      echo "<h1>Arrancado kernel</h1>";
+      //echo "<h1>Arrancado kernel</h1>";
+      $indexController = new IndexController($this->container);
+      $indexController->index();
+
     }
 
     // librería PHP-DI
