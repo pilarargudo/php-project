@@ -17,8 +17,6 @@ class Monolog implements LoggerInterface
       $this->logger = new Logger('Kernel');
       $this->logger->pushHandler(new StreamHandler(dirname(__DIR__).'/var/log/prod.log'), Logger:: DEBUG);
     
-      $this->logger = $logger;
-
   }
 
   public function getLogger():LoggerInterface
