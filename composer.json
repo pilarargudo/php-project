@@ -1,0 +1,10 @@
+{
+    "name": "root/project-php",
+    "authors": [
+        {
+            "name": "Pilar Argudo",
+            "email": "pargudo@disid.com"
+        }
+    ],
+    "require": {}
+}
