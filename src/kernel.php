@@ -6,6 +6,8 @@ namespace App;
 // lo movemos a monolog y lo traemos aquí
 use App\helper\Monolog;
 
+use App\ViewManager;
+
 use DI\ContainerBuilder;
 
 //use Kint;
@@ -19,15 +21,14 @@ use DI\ContainerBuilder;
       // // monolog -> lo movemos a Monolog
       // $this->logger = new Logger('Kernel');
       // $this->logger->pushHandler(new StreamHandler(dirname(__DIR__).'/var/log/prod.log'), Logger:: DEBUG);
-
       // almacenamos contenedor
       $this->logger = new Monolog();
-
       // create container builder with php-di
       $this->container = $this->createContainer();
       // 
       $this->container->set(LoggerInterface::class, $this->logger);
       //Kint::dump($this->container);
+      $ViewManager = new ViewManager();
     }
 
     public function init()
@@ -51,4 +52,9 @@ use DI\ContainerBuilder;
       // Create container
       return $containerBuilder->build();
     }
+
+    public static function getProjectDir():string
+    {
+      return dirname(__DIR__);
+    } 
   }
