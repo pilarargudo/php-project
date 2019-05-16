@@ -2,8 +2,6 @@
 
 namespace App\controllers;
 
-use App\ViewManager;
-
 use App\SessionManager;
 
 use App\dao\loginDao;
@@ -11,8 +9,7 @@ use App\dao\loginDao;
 class LoginController extends Controller
 {
   public function index(){
-    $viewManager = $this->container->get(ViewManager::class);
-    $viewManager->renderTemplate("login.view.html");
+    $this->viewManager->renderTemplate("login.view.html");
   }
 
   public function login(){

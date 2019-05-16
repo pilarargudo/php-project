@@ -2,8 +2,6 @@
 
 namespace App\controllers;
 
-use App\ViewManager;
-
 use App\SessionManager;
 
 //use App\dao\loginDao;
@@ -16,8 +14,7 @@ class AdminController extends Controller
     $user = SessionManager::get("user");
     
     if($user) {
-      $viewManager = $this->container->get(ViewManager::class);
-      $viewManager->renderTemplate("admin.view.html", array('email'=>'Pilar'));
+      $this->viewManager->renderTemplate("admin.view.html", array('email'=>'Pilar'));
     } else {
       parent::returnView("login");
     }
