@@ -38,7 +38,12 @@ class ViewManager
 
   public function renderTemplate($template, $args=[])
   {
-    echo $this-> render($template, $args);
+    static $twig = null;
+    if($twig === null){
+      $loader = new \Twig_Loader_Filesystem(kernel::getProjectDir().'/templates');
+      $twig = new \Twig_Environment($loader);
+    }
+    echo $twig->render($template, $args);
   }
 
 

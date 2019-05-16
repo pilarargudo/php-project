@@ -8,6 +8,6 @@ class IndexController extends Controller
 {
   public function index(){
     $viewManager = $this->container->get(ViewManager::class);
-    $viewManager->renderTemplate("index.twig");
+    $viewManager->renderTemplate("index.view.html");
   }
 }
