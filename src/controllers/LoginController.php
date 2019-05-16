@@ -18,7 +18,7 @@ class LoginController extends Controller
     $passwd = $_POST['passwd'];
     //conexión a la bd
     $loginDao = new loginDao();
-    $result = $loginDao->getUser($email, $passwd);
+    $result = $loginDao->getUser($email, $passwd)[0];
     //echo $result[0];
     if($result){
       // le enviamos al sessionManager el usuario con el que hemos hecho login
