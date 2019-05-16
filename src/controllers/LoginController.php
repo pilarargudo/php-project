@@ -20,9 +20,13 @@ class LoginController extends Controller
     //conexión a la bd
     $loginDao = new loginDao();
     $result = $loginDao->getUser($email, $passwd);
-
-    echo $result[0];
-    //redirección a una página
-    //parent::returnView(''); // a la home
+    //echo $result[0];
+    if($result){
+      //redirección a una página
+      parent::returnView(''); // a la home
+    }else {
+      parent::returnView('login');
+    }
+   
   }
 }
