@@ -18,6 +18,7 @@ class RegisterController extends Controller
     $passwd = $_POST['passwd'];
     //conexión a la bd
     $registerDao = new registerDao();
+    $registerDao->saveUser($email, $passwd);
     // validamos
     echo "<h1>Proceso de registro $email $passwd</h1>";
   }
