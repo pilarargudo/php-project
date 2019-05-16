@@ -4,6 +4,8 @@ namespace App\controllers;
 
 use App\ViewManager;
 
+use App\SessionManager;
+
 use App\dao\loginDao;
 
 class LoginController extends Controller
@@ -22,8 +24,11 @@ class LoginController extends Controller
     $result = $loginDao->getUser($email, $passwd);
     //echo $result[0];
     if($result){
+      // le enviamos al sessionManager el usuario con el que hemos hecho login
+      // encriptado en la cookie de session
+      SessionManager::put('user',$result);
       //redirección a una página
-      parent::returnView(''); // a la home
+      parent::returnView('admin');
     }else {
       parent::returnView('login');
     }
