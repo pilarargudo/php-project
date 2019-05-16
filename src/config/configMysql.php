@@ -10,8 +10,8 @@ class configMysql
         'name'=>'bootcampfullstack',
         'username'=>'root',
         'password'=>'mysql',
-        'connection'=>'mysql:host=127.0.0.1',
-        'options'=>''
+        'connection'=>'mysql:host=127.0.0.1'
+        //'options'=>''
         ]
       ];
   }
