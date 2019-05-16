@@ -19,7 +19,11 @@ class RegisterController extends Controller
     //conexión a la bd
     $registerDao = new registerDao();
     $registerDao->saveUser($email, $passwd);
+
     // validamos
-    echo "<h1>Proceso de registro $email $passwd</h1>";
+    //echo "<h1>Proceso de registro $email $passwd</h1>";
+
+    //redirección a una página
+    parent::returnView(''); // a la home
   }
 }
