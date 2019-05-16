@@ -4,7 +4,7 @@ namespace App\controllers;
 
 use App\SessionManager;
 
-use Kint;
+//use Kint;
 
 
 class AdminController extends Controller
@@ -14,7 +14,7 @@ class AdminController extends Controller
     // comprobamos si existe usuario en la sesión
     $user = SessionManager::get("user");
     
-    Kint::dump($user);
+    //Kint::dump($user);
     if($user) {
       $this->viewManager->renderTemplate("admin.view.html",array('user'=>$user));
     } else {

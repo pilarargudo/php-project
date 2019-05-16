@@ -16,6 +16,12 @@ class SessionManager
     return unserialize($_SESSION[$variable]);
   }
 
+  public static function remove($variable)
+  {
+      unset($_SESSION[$variable]);
+  
+  }
+
 
 
 

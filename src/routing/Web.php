@@ -14,6 +14,7 @@ class Web
         $route->addRoute('GET','/login',['App\controllers\LoginController','index']);
         $route->addRoute('POST','/login',['App\controllers\LoginController','login']);
         $route->addRoute('GET','/admin',['App\controllers\AdminController','index']);
+        $route->addRoute('GET','/logout',['App\controllers\LogoutController','index']);
 
       }
     );
